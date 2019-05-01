@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using ServiceDescriptorExamples.Web.Contracts;
 using ServiceDescriptorExamples.Web.Services;
 
@@ -35,7 +31,7 @@ namespace ServiceDescriptorExamples.Web
 
             // Creating a new Instance of the ServiceDescriptor
             var oneService = new ServiceDescriptor(typeof(IOneService), typeof(OneService), ServiceLifetime.Scoped);
-            services.Add(oneService);
+            services.Add(oneService);            
 
             // Using the Describe() static method on the ServiceDescriptor
             var twoService = ServiceDescriptor.Describe(typeof(ITwoService), typeof(TwoService), ServiceLifetime.Scoped);
@@ -48,6 +44,18 @@ namespace ServiceDescriptorExamples.Web
             // Using the static method for the specific lifetime
             var fourService = ServiceDescriptor.Scoped<IFourService, FourService>();
             services.Add(fourService);
+
+            // Safely registring multiple dependencies.
+            /*
+            services.TryAddEnumerable(new[] {
+                ServiceDescriptor.Scoped<IThreeService, ThreeService>(),
+                ServiceDescriptor.Scoped<IThreeService, AwesomeThreeService>(),
+                ServiceDescriptor.Scoped<IThreeService, SuperAwesomeThreeService>()
+            });
+            */
+
+            // Replacing an already registered dependency
+            //services.Replace(ServiceDescriptor.Scoped<IThreeService, AwesomeThreeService>());
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
