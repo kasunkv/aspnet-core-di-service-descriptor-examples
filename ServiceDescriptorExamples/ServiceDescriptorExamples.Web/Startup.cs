@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ServiceDescriptorExamples.Web.Contracts;
+using ServiceDescriptorExamples.Web.Services;
 
 namespace ServiceDescriptorExamples.Web
 {
@@ -31,6 +33,21 @@ namespace ServiceDescriptorExamples.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            // Creating a new Instance of the ServiceDescriptor
+            var oneService = new ServiceDescriptor(typeof(IOneService), typeof(OneService), ServiceLifetime.Scoped);
+            services.Add(oneService);
+
+            // Using the Describe() static method on the ServiceDescriptor
+            var twoService = ServiceDescriptor.Describe(typeof(ITwoService), typeof(TwoService), ServiceLifetime.Scoped);
+            services.Add(twoService);
+
+            // Using the static method for the specific lifetime
+            var threeService = ServiceDescriptor.Scoped(typeof(IThreeService), typeof(ThreeService));
+            services.Add(threeService);
+
+            // Using the static method for the specific lifetime
+            var fourService = ServiceDescriptor.Scoped<IFourService, FourService>();
+            services.Add(fourService);
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
