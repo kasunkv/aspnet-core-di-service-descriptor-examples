@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28531.58
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceDescriptorExamples.Web", "ServiceDescriptorExamples.Web\ServiceDescriptorExamples.Web.csproj", "{B5B98DA5-B85D-4704-BB97-70DD96A54EBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5B98DA5-B85D-4704-BB97-70DD96A54EBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5B98DA5-B85D-4704-BB97-70DD96A54EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5B98DA5-B85D-4704-BB97-70DD96A54EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5B98DA5-B85D-4704-BB97-70DD96A54EBA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A4A829D0-63B8-4B27-96CB-BBE97BDE31C5}
+	EndGlobalSection
+EndGlobal
