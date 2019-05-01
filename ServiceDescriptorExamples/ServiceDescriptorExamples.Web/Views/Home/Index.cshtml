@@ -1,8 +1,20 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p class="lead">Messages from the Injected Services</p>  
+    <hr />  
+    <div class="row">
+        <div class="col-4 offset-4">
+            <ul class="list-group">
+                @foreach (var message in Model.Messages)
+                {
+                    <li class="list-group-item">@message</li>
+                }
+            </ul>
+        </div>
+    </div>
 </div>

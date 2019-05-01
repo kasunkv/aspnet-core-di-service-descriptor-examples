@@ -6,7 +6,7 @@ namespace ServiceDescriptorExamples.Web.Services
     {
         public string SayThree()
         {
-            return "Hi, Three Service Here..";
+            return "Hi, Service Three Here..";
         }
     }
 }
